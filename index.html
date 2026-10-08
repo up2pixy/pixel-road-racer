@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
   <title>Pixel Road Racer</title>
   <link rel="icon" href="data:,">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,6 +31,7 @@
       <div class="label">BEST</div>
       <div id="best">0</div>
     </div>
+    <button id="pause-btn" aria-label="Pause">II</button>
     <div class="hud-bottom">
       <span id="speed">0 KM/H</span>
       <span id="time">0.0s</span>
@@ -38,18 +41,23 @@
 
   <div id="title" class="overlay">
     <h1>PIXEL<br><span class="accent">ROAD RACER</span></h1>
-    <p class="blink">PRESS SPACE TO START</p>
-    <div class="controls">
+    <p class="blink"><span class="keys-only">PRESS SPACE TO START</span><span class="touch-only">TAP TO START</span></p>
+    <div class="controls keys-only">
       <div>&larr; &rarr; CHANGE LANE</div>
       <div>&uarr; &darr; SPEED UP / BRAKE</div>
       <div>P PAUSE</div>
+    </div>
+    <div class="controls touch-only">
+      <div>SWIPE &larr; &rarr; CHANGE LANE</div>
+      <div>SWIPE &uarr; &darr; + HOLD: SPEED / BRAKE</div>
+      <div>II PAUSE</div>
     </div>
     <div class="best-line">BEST: <span id="title-best">0</span></div>
   </div>
 
   <div id="pause" class="overlay hidden">
     <h2>PAUSED</h2>
-    <p class="blink">PRESS P TO RESUME</p>
+    <p class="blink"><span class="keys-only">PRESS P TO RESUME</span><span class="touch-only">TAP TO RESUME</span></p>
   </div>
 
   <div id="gameover" class="overlay hidden">
@@ -58,7 +66,7 @@
     <p>SCORE <span id="final-score">0</span></p>
     <p>TIME <span id="final-time">0.0s</span></p>
     <p>BEST <span id="final-best">0</span></p>
-    <p class="blink">PRESS SPACE TO RETRY</p>
+    <p class="blink"><span class="keys-only">PRESS SPACE TO RETRY</span><span class="touch-only">TAP TO RETRY</span></p>
   </div>
 
   <script type="module" src="js/main.js"></script>

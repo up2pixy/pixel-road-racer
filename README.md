@@ -26,6 +26,15 @@ Then open the printed URL. An internet connection is required (Three.js and the 
 | P / Esc | Pause |
 | Space / Enter | Start / retry |
 
+### Touch (phones & tablets)
+
+| Gesture | Action |
+| --- | --- |
+| Swipe ← / → | Change lane (keep dragging to move several lanes) |
+| Swipe ↑ / ↓ and hold | Speed up / brake (release to return to cruise speed) |
+| **II** button | Pause |
+| Tap | Start / resume / retry |
+
 ## Gameplay
 
 - The two left lanes carry oncoming traffic; the two right lanes flow your way but slower.
@@ -41,6 +50,7 @@ Then open the printed URL. An internet connection is required (Three.js and the 
 - `js/models.js` – voxel builders for cars, trucks, buses, obstacles and scenery
 - `js/world.js` – recycled road/grass/tree chunks
 - `js/player.js` – player car movement
+- `js/touch.js` – swipe gesture controls
 - `js/traffic.js` – spawning, lane following and difficulty ramp
 - `js/collision.js` – AABB collision
 - `js/ui.js` – HUD, overlays and high score

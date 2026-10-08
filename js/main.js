@@ -8,6 +8,7 @@ import { Traffic } from './traffic.js';
 import { findCollision } from './collision.js';
 import { UI } from './ui.js';
 import { geo, mat } from './models.js';
+import { setupSwipe } from './touch.js';
 
 // ---------- Renderer (low-res, upscaled with nearest-neighbour for pixel art) ----------
 const container = document.getElementById('game');
@@ -205,9 +206,21 @@ window.addEventListener('blur', () => {
 });
 
 for (const id of ['title', 'gameover']) {
-  document.getElementById(id).addEventListener('click', startGame);
+  document.getElementById(id).addEventListener('click', () => {
+    if (state === 'title' || state === 'gameover') startGame();
+  });
 }
 document.getElementById('pause').addEventListener('click', togglePause);
+document.getElementById('pause-btn').addEventListener('click', togglePause);
+
+setupSwipe({
+  isActive: () => state === 'playing',
+  onLane: (dir) => player.changeLane(dir),
+  onSpeed: (dir) => {
+    input.up = dir > 0;
+    input.down = dir < 0;
+  },
+});
 
 // ---------- Main loop ----------
 function updateCamera(dt) {
