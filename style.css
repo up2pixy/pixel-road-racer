@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #3fb04a;
+  font-family: 'Press Start 2P', 'Courier New', monospace;
+  color: #fff;
+  user-select: none;
+}
+
+#game canvas {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- HUD ---------- */
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.hud-box {
+  position: absolute;
+  top: 16px;
+  padding: 10px 14px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 4px solid #000;
+}
+
+.hud-left {
+  left: 16px;
+}
+
+.hud-right {
+  right: 16px;
+  text-align: right;
+}
+
+.label {
+  font-size: 10px;
+  color: #ffd23f;
+  margin-bottom: 8px;
+}
+
+#score,
+#best {
+  font-size: 24px;
+}
+
+.hud-bottom {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 28px;
+  font-size: 12px;
+  padding: 10px 16px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 4px solid #000;
+  white-space: nowrap;
+}
+
+/* ---------- Overlays ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+  background: rgba(10, 20, 40, 0.45);
+  text-shadow: 4px 4px 0 #000;
+  cursor: pointer;
+}
+
+h1 {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 6vw, 64px);
+  line-height: 1.3;
+  color: #fff;
+}
+
+h1 .accent {
+  color: #ff4757;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(24px, 5vw, 48px);
+  color: #ff4757;
+}
+
+.overlay p {
+  margin: 0;
+  font-size: 16px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 12px;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 4px solid #000;
+  line-height: 1.4;
+}
+
+.best-line,
+#new-best {
+  font-size: 14px;
+  color: #ffd23f;
+}
+
+#new-best {
+  font-size: 18px;
+  animation: blink 0.5s steps(1) infinite;
+}
+
+.blink {
+  color: #7bed9f;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

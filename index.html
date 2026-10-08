@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel Road Racer</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="game"></div>
+
+  <div id="hud" class="hidden">
+    <div class="hud-box hud-left">
+      <div class="label">SCORE</div>
+      <div id="score">0</div>
+    </div>
+    <div class="hud-box hud-right">
+      <div class="label">BEST</div>
+      <div id="best">0</div>
+    </div>
+    <div class="hud-bottom">
+      <span id="speed">0 KM/H</span>
+      <span id="time">0.0s</span>
+      <span id="level">LV 1</span>
+    </div>
+  </div>
+
+  <div id="title" class="overlay">
+    <h1>PIXEL<br><span class="accent">ROAD RACER</span></h1>
+    <p class="blink">PRESS SPACE TO START</p>
+    <div class="controls">
+      <div>&larr; &rarr; CHANGE LANE</div>
+      <div>&uarr; &darr; SPEED UP / BRAKE</div>
+      <div>P PAUSE</div>
+    </div>
+    <div class="best-line">BEST: <span id="title-best">0</span></div>
+  </div>
+
+  <div id="pause" class="overlay hidden">
+    <h2>PAUSED</h2>
+    <p class="blink">PRESS P TO RESUME</p>
+  </div>
+
+  <div id="gameover" class="overlay hidden">
+    <h2>CRASHED!</h2>
+    <div id="new-best" class="hidden">NEW BEST!</div>
+    <p>SCORE <span id="final-score">0</span></p>
+    <p>TIME <span id="final-time">0.0s</span></p>
+    <p>BEST <span id="final-best">0</span></p>
+    <p class="blink">PRESS SPACE TO RETRY</p>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
